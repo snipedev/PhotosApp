@@ -5,8 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PhotoViewer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="IMageViewer" Height="450" Width="800">
+    <Grid x:Name="gridMain">
+        <TextBox  Width="Auto" Height="30"  VerticalAlignment="Top" HorizontalAlignment="Stretch" x:Name="txtSearch" Margin="5" BorderThickness="2" BorderBrush="Gray" FontSize="16"/>
+        <TextBlock IsHitTestVisible="False" Text="Enter Search Term Here" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,10,0,0" Foreground="DarkGray" FontSize="16">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=txtSearch}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Center" Margin="40" VerticalAlignment="Top" Click="Button_Click" RenderTransformOrigin="4.266,-9.252" FontSize="16"/>
 
+        <DockPanel HorizontalAlignment="Stretch" Margin="0,80,0,0">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <WrapPanel x:Name="sPanel" HorizontalAlignment="Stretch"/>
+                </StackPanel>
+            </ScrollViewer>
+        </DockPanel>
+
+        <Grid x:Name="grdPhotoViewer" Visibility="Hidden" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Button x:Name="close" VerticalAlignment="Top" HorizontalAlignment="Right" Panel.ZIndex="200" Margin="0,0,0,0" Height="30" Width="50" Foreground="White" Background="Red" Click="close_Click">X</Button>
+            <Viewbox x:Name="pictureVBox" VerticalAlignment="stretch" HorizontalAlignment="stretch" Margin="0,0,0,0"/>
+            <Slider x:Name="slider" Width="800" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background ="gray" Maximum ="2000" Minimum="800" ValueChanged="slider_ValueChanged"/>
+
+        </Grid>
     </Grid>
 </Window>
