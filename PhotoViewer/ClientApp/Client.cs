@@ -13,9 +13,9 @@ namespace ClientApp
             _photoApiClient.ContentType = "application/json";
         }
 
-        public async Task<IList<Photos>> GetPhotosByTagAsync(string Tag)
+        public async Task<IList<Photos>> GetPhotosByTagAsync(string Tag, int page = 1,int perPage = 100)
         {
-            var response = await _photoApiClient.GetPhotos(Tag);
+            var response = await _photoApiClient.GetPhotos(Tag,page,perPage);
 
             return response;
 

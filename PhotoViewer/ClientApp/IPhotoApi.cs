@@ -14,6 +14,6 @@ namespace ClientApp
         public string Accept { get; set; }
 
         [Get("{tag}")]
-        public Task<IList<Photos>> GetPhotos([Path("tag")] string tag);
+        public Task<IList<Photos>> GetPhotos([Path("tag")] string tag, [Query("page")] int page, [Query("perPage")] int perPage );
     }
 }

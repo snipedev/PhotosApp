@@ -36,5 +36,6 @@
             <Slider x:Name="slider" Width="800" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background ="gray" Maximum ="2000" Minimum="800" ValueChanged="slider_ValueChanged"/>
 
         </Grid>
+        <Button x:Name="btnPrevious" Content="&lt;" HorizontalAlignment="Left" Margin="40" Padding="5,0,5,0" VerticalAlignment="Top" Background="GhostWhite" IsEnabled="False" RenderTransformOrigin="4.266,-9.252" FontSize="16" Click="btnPrevious_Click"/>
     </Grid>
 </Window>
