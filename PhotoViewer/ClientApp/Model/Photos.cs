@@ -15,4 +15,10 @@ namespace ClientApp.Model
             [JsonProperty("originalUrl")]
             public string OriginalUrl { get; set; }
     }
+
+    public class PhotoResponse
+    {
+        public string Text { get; set; }
+        public IList<Photos> Photos { get; set; }
+    }
 }
